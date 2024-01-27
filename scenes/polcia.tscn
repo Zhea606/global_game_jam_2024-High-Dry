@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://cslqqfvfb5uor"]
+
+[ext_resource type="Script" path="res://scripts/polcia.gd" id="1_xy5au"]
+[ext_resource type="Texture2D" uid="uid://dte7rq2rfq45d" path="res://assets/policia/intentodeluz3.png" id="2_5kgvc"]
+[ext_resource type="Texture2D" uid="uid://dpu5v8if6ce60" path="res://assets/policia/policia caminata/000.png" id="2_to5pg"]
+[ext_resource type="Texture2D" uid="uid://bj8ok8ylyteaq" path="res://assets/policia/policia caminata/001.png" id="3_ridmi"]
+[ext_resource type="Texture2D" uid="uid://xncivmnaux5m" path="res://assets/policia/policia caminata/002.png" id="4_y4d7o"]
+[ext_resource type="Texture2D" uid="uid://cwujs0pqngbm2" path="res://assets/policia/policia caminata/003.png" id="5_i0ypk"]
+[ext_resource type="Texture2D" uid="uid://b7mcs0xwimj6e" path="res://assets/policia/policia caminata/004.png" id="6_trhw5"]
+[ext_resource type="Texture2D" uid="uid://bk0pm37dntu6g" path="res://assets/policia/policia caminata/005.png" id="7_f42tq"]
+[ext_resource type="Texture2D" uid="uid://f034n2dak075" path="res://assets/policia/policia caminata/006.png" id="8_viylj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbxuk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_to5pg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ridmi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y4d7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i0ypk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_trhw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f42tq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_viylj")
+}],
+"loop": true,
+"name": &"caminar",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ylr"]
+size = Vector2(18, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ehjf"]
+size = Vector2(34.7243, 11.5161)
+
+[node name="polcia" type="CharacterBody2D"]
+script = ExtResource("1_xy5au")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bbxuk")
+animation = &"caminar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_f6ylr")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2, -10)
+scale = Vector2(0.434998, 0.554999)
+energy = 2.0
+texture = ExtResource("2_5kgvc")
+offset = Vector2(371.172, 1.04619)
+
+[node name="Area2D" type="Area2D" parent="PointLight2D"]
+position = Vector2(-42.1053, -21.0526)
+scale = Vector2(10.5263, 10.5263)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D/Area2D"]
+position = Vector2(26.1668, 1.75806)
+shape = SubResource("RectangleShape2D_6ehjf")
+
+[node name="sensor_derecha" type="RayCast2D" parent="."]
+target_position = Vector2(25, 0)
+
+[node name="sensor_izquierda" type="RayCast2D" parent="."]
+target_position = Vector2(-25, 0)
+
+[connection signal="body_entered" from="PointLight2D/Area2D" to="." method="_on_area_2d_body_entered"]
