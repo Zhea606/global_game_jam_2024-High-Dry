@@ -16,6 +16,7 @@ corner_radius_bottom_right = 10
 size = Vector2(130, 127)
 
 [node name="Player" type="Node2D" groups=["Player"]]
+scale = Vector2(0.7, 0.7)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Player"]]
 script = ExtResource("1_2ek00")
@@ -40,7 +41,7 @@ offset_top = 78.0
 offset_right = 173.0
 offset_bottom = 105.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_roag8")
-value = 15.0
+value = 50.0
 
 [node name="HitBox" type="Area2D" parent="CharacterBody2D"]
 position = Vector2(380, 319)
@@ -50,8 +51,16 @@ metadata/_edit_group_ = true
 position = Vector2(2, -7.5)
 shape = SubResource("RectangleShape2D_8ibhf")
 
+[node name="Label" type="Label" parent="CharacterBody2D"]
+offset_left = 519.0
+offset_top = 81.0
+offset_right = 801.0
+offset_bottom = 104.0
+text = "SIN LLAVE"
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="area_entered" from="CharacterBody2D/HitBox" to="CharacterBody2D" method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]

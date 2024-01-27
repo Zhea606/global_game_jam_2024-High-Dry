@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce0ncnuvutryj"]
+
+[ext_resource type="Texture2D" uid="uid://xj1khu1syb1m" path="res://icon.svg" id="1_7qw0f"]
+[ext_resource type="Script" path="res://flores.gd" id="1_7wi00"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uif1p"]
+size = Vector2(130, 130)
+
+[node name="Flores" type="Area2D" groups=["Flores"]]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_7wi00")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.309804, 0.509804, 0.145098, 1)
+scale = Vector2(1, 1)
+texture = ExtResource("1_7qw0f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.15256e-06, 7.15256e-06)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_uif1p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
