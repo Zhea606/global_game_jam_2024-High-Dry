@@ -43,7 +43,6 @@ func mover_policia():
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print(body.name)
 	if body.is_in_group("Player"):
 		get_tree().paused = true
-		print("JUEGO TERMINADO")
+		get_tree().change_scene_to_file("res://scenes/Muerte/control.tscn")

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="GGJ 2024 - Mendoza"
-run/main_scene="res://scenes/ciudad.tscn"
+run/main_scene="res://scenes/nueva_ciudad.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Autoload="*res://scripts/autoload.gd"
 
 [rendering]
 
