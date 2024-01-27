@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckp2r52hlcfxn"]
+
+[ext_resource type="Texture2D" uid="uid://6q4m1k6yoib5" path="res://scenes/Npc_OfficeWorker/NPC_Idle1.png" id="1_8kuud"]
+[ext_resource type="Texture2D" uid="uid://bb788wo5s7dkq" path="res://scenes/Npc_OfficeWorker/NPC_Idle2.png" id="2_mswo7"]
+[ext_resource type="Script" path="res://scenes/Npc_OfficeWorker/NpcDialogueScript.gd" id="3_xaw3v"]
+[ext_resource type="LabelSettings" uid="uid://da8inon5cmt2r" path="res://scenes/Npc_OfficeWorker/pixelized_label.tres" id="4_grivg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jro1g"]
+radius = 90.202
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ppvek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8kuud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mswo7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NPC" type="Area2D" node_paths=PackedStringArray("speech")]
+position = Vector2(574, 415)
+scale = Vector2(10, 10)
+script = ExtResource("3_xaw3v")
+speech = NodePath("npc/CenterContainer/Label")
+line1 = ["hola", "dame una moneda", "gil"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jro1g")
+
+[node name="npc" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ppvek")
+frame = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="npc"]
+anchors_preset = -1
+anchor_left = -2.156
+anchor_top = -2.312
+anchor_right = -2.156
+anchor_bottom = -2.312
+offset_left = -2.008
+offset_top = 28.984
+offset_right = 143.992
+offset_bottom = 68.984
+
+[node name="Label" type="Label" parent="npc/CenterContainer"]
+layout_mode = 2
+text = "I talk to the player!"
+label_settings = ExtResource("4_grivg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
