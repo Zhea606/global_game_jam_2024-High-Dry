@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b34awvoht35wi"]
+
+[ext_resource type="Script" path="res://scripts/empanada.gd" id="1_l1xpn"]
+[ext_resource type="Texture2D" uid="uid://qitsqpr1dlhh" path="res://assets/coleccionables/empanada.png" id="2_ckjxm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acm23"]
+size = Vector2(130, 105)
+
+[node name="Empanada" type="Area2D" groups=["Empanada"]]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_l1xpn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.905882, 0.337255, 0.423529, 1)
+position = Vector2(0.5, -0.499992)
+scale = Vector2(3.408, 3.408)
+texture = ExtResource("2_ckjxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.78814e-06, 2.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_acm23")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

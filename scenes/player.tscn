@@ -1,58 +1,132 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7g3g8kjpgsaq"]
+[gd_scene load_steps=17 format=3 uid="uid://c7g3g8kjpgsaq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2ek00"]
-[ext_resource type="Texture2D" path="res://icon.svg" id="2_8g454"]
-[ext_resource type="Script" path="res://Icon.gd" id="3_8c702"]
+[ext_resource type="Texture2D" uid="uid://b658ej5yr5joo" path="res://assets/pj/turro idle.png" id="2_hbykf"]
+[ext_resource type="Script" path="res://scripts/camara.gd" id="2_yhc8c"]
+[ext_resource type="Texture2D" uid="uid://dx6s3ctouac5j" path="res://assets/pj/caminando_lateral/000.png" id="4_pgvvw"]
+[ext_resource type="Texture2D" uid="uid://djpesutmcrrh4" path="res://assets/pj/caminando_lateral/001.png" id="5_qu0oh"]
+[ext_resource type="Texture2D" uid="uid://2phrpq1dkwc7" path="res://assets/pj/caminando_lateral/002.png" id="6_lbfc1"]
+[ext_resource type="Texture2D" uid="uid://b7ec01lla48kc" path="res://assets/pj/caminando_lateral/003.png" id="7_hsmcf"]
+[ext_resource type="Texture2D" uid="uid://b8a57qf1rd5ll" path="res://assets/pj/caminando_lateral/004.png" id="8_kt2cm"]
+[ext_resource type="Texture2D" uid="uid://epgfnh4m38ou" path="res://assets/pj/caminando_lateral/005.png" id="9_5ac4p"]
+[ext_resource type="Texture2D" uid="uid://cpoiog5jymn76" path="res://assets/pj/caminando_lateral/006.png" id="10_owt18"]
+[ext_resource type="Texture2D" uid="uid://e2sxwb0kcb0c" path="res://assets/pj/caminando_lateral/007.png" id="11_8leqt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt1q0"]
-size = Vector2(129, 126)
+[sub_resource type="SpriteFrames" id="SpriteFrames_pe0og"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hbykf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pgvvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qu0oh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lbfc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hsmcf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kt2cm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5ac4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_owt18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8leqt")
+}],
+"loop": true,
+"name": &"lateral",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_roag8"]
 bg_color = Color(0.301961, 0.584314, 0.0941176, 1)
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
+[sub_resource type="LabelSettings" id="LabelSettings_o2dff"]
+font_size = 9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt1q0"]
+size = Vector2(22.8572, 25)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ibhf"]
-size = Vector2(130, 127)
+size = Vector2(22.8572, 61)
 
 [node name="Player" type="Node2D" groups=["Player"]]
+scale = Vector2(0.7, 0.7)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Player"]]
 script = ExtResource("1_2ek00")
 metadata/_edit_group_ = true
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(378, 321)
-enabled = false
-zoom = Vector2(4.165, 4.165)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(1.42857, 2.85714)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_pe0og")
+flip_h = true
 
-[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(382, 313)
-texture = ExtResource("2_8g454")
-script = ExtResource("3_8c702")
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-1.42856, 3.05176e-05)
+scale = Vector2(1, 1)
+zoom = Vector2(6.35, 6.35)
+script = ExtResource("2_yhc8c")
+metadata/_edit_group_ = true
+
+[node name="HighProgressBar" type="ProgressBar" parent="CharacterBody2D/Camera2D"]
+z_index = 1
+offset_left = -157.143
+offset_top = -88.5715
+offset_right = 76.8571
+offset_bottom = -61.5715
+scale = Vector2(0.542861, 0.581343)
+theme_override_styles/fill = SubResource("StyleBoxFlat_roag8")
+value = 50.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CharacterBody2D/Camera2D"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 41.4286
+offset_top = -92.8572
+offset_right = 323.429
+offset_bottom = -69.8572
+grow_horizontal = 0
+text = "SIN LLAVE"
+label_settings = SubResource("LabelSettings_o2dff")
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(381.5, 312)
+position = Vector2(0, 21.0714)
+scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_vt1q0")
 
-[node name="HighProgressBar" type="ProgressBar" parent="CharacterBody2D"]
-offset_left = -61.0
-offset_top = 78.0
-offset_right = 173.0
-offset_bottom = 105.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_roag8")
-value = 15.0
-
 [node name="HitBox" type="Area2D" parent="CharacterBody2D"]
-position = Vector2(380, 319)
+position = Vector2(-1.42857, 8.57143)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HitBox"]
-position = Vector2(2, -7.5)
+position = Vector2(1.42859, -5.21432)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8ibhf")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="area_entered" from="CharacterBody2D/HitBox" to="CharacterBody2D" method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]
