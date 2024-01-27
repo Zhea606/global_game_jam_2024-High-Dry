@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://mtuneb2d3y2w"]
+[gd_scene load_steps=13 format=3 uid="uid://mtuneb2d3y2w"]
 
 [ext_resource type="Texture2D" uid="uid://m45xxc7blajv" path="res://assets/tilemap/TileSheet-Sheet.png" id="1_0slhi"]
 [ext_resource type="PackedScene" uid="uid://c7g3g8kjpgsaq" path="res://scenes/player.tscn" id="2_840n2"]
 [ext_resource type="PackedScene" uid="uid://b3n5rgsxlu228" path="res://scenes/pointlight/point_light_2d.tscn" id="3_5u0pp"]
 [ext_resource type="PackedScene" uid="uid://ckp2r52hlcfxn" path="res://scenes/Npc_OfficeWorker/npc_officeworker_scene.tscn" id="4_cqs38"]
+[ext_resource type="PackedScene" uid="uid://hvrw8b0njhue" path="res://mate.tscn" id="5_aypgo"]
+[ext_resource type="PackedScene" uid="uid://b34awvoht35wi" path="res://empanada.tscn" id="6_3v5sh"]
+[ext_resource type="PackedScene" uid="uid://d0x257bbl1tn4" path="res://caramelos.tscn" id="7_0et5b"]
+[ext_resource type="PackedScene" uid="uid://ce0ncnuvutryj" path="res://flores.tscn" id="8_8ay50"]
+[ext_resource type="PackedScene" uid="uid://m278g1iqu3t" path="res://llave.tscn" id="9_88x30"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6r1jd"]
 texture = ExtResource("1_0slhi")
@@ -1892,6 +1897,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6r1jd")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gg6r"]
+size = Vector2(48, 32)
+
 [node name="ciudad" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -1913,3 +1921,26 @@ position = Vector2(235, 355)
 [node name="NPC" parent="." instance=ExtResource("4_cqs38")]
 position = Vector2(700, 376)
 scale = Vector2(1.34, 1.34)
+
+[node name="Mate" parent="." instance=ExtResource("5_aypgo")]
+position = Vector2(230, 212)
+
+[node name="Empanada" parent="." instance=ExtResource("6_3v5sh")]
+position = Vector2(235, 93)
+
+[node name="Caramelos" parent="." instance=ExtResource("7_0et5b")]
+position = Vector2(537, 214)
+
+[node name="Flores" parent="." instance=ExtResource("8_8ay50")]
+position = Vector2(535, 64)
+
+[node name="Llave" parent="." instance=ExtResource("9_88x30")]
+position = Vector2(234, -92)
+
+[node name="Puerta" type="Area2D" parent="." groups=["Puerta"]]
+position = Vector2(536, -127)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_2gg6r")

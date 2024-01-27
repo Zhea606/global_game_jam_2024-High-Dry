@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0x257bbl1tn4"]
+
+[ext_resource type="Script" path="res://caramelos.gd" id="1_g4pmv"]
+[ext_resource type="Texture2D" uid="uid://xj1khu1syb1m" path="res://icon.svg" id="1_kpxdy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ag5f6"]
+size = Vector2(135, 130)
+
+[node name="Caramelos" type="Area2D" groups=["Caramelos"]]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_g4pmv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.345098, 0.65098, 0, 1)
+texture = ExtResource("1_kpxdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.50001, 5.21541e-06)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_ag5f6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
