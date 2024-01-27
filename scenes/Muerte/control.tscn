@@ -1,6 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d2bda7vc03d15"]
 
 [ext_resource type="Script" path="res://scenes/Muerte/Control.gd" id="1_xu868"]
+[ext_resource type="FontFile" uid="uid://dwvi8w058xiym" path="res://fonts/VT323/VT323-Regular.ttf" id="2_n8wid"]
 
 [sub_resource type="Theme" id="Theme_q2mi6"]
 
@@ -11,9 +12,6 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wrc0"]
 bg_color = Color(1, 0.337255, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e2wh"]
-bg_color = Color(0.6, 0.00784314, 0.6, 1)
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(1152, 648)
@@ -77,13 +75,12 @@ vertical_alignment = 1
 [node name="Panel3" type="Panel" parent="."]
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 0
-offset_left = 931.0
-offset_top = 473.0
-offset_right = 1131.0
-offset_bottom = 623.0
+offset_left = 723.0
+offset_top = 470.0
+offset_right = 1123.0
+offset_bottom = 620.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_0e2wh")
 
 [node name="Button" type="Button" parent="Panel3"]
 layout_mode = 1
@@ -92,4 +89,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "SI"
+theme_override_fonts/font = ExtResource("2_n8wid")
+theme_override_font_sizes/font_size = 50
+text = "VOLVER A INTENTAR"
+
+[connection signal="pressed" from="Panel3/Button" to="." method="_on_button_pressed"]

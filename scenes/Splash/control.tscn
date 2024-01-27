@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmwf4l5qolwer"]
+[gd_scene load_steps=8 format=3 uid="uid://cmwf4l5qolwer"]
 
 [ext_resource type="Script" path="res://scenes/Splash/Control.gd" id="1_sth2b"]
-[ext_resource type="Texture2D" uid="uid://cef35fupgtlr1" path="res://scenes/Splash/luces-ciudad-noche.jpg" id="2_vfek4"]
+[ext_resource type="Texture2D" uid="uid://cgg5orbgh8y8i" path="res://scenes/Splash/High & Dry inicio.png" id="2_i41b7"]
 [ext_resource type="Texture2D" uid="uid://c0en1bqtj50ku" path="res://scenes/Splash/turro idle.png" id="3_og2e3"]
+[ext_resource type="FontFile" uid="uid://dwvi8w058xiym" path="res://fonts/VT323/VT323-Regular.ttf" id="3_rabva"]
 
 [sub_resource type="Theme" id="Theme_q2mi6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htlbc"]
+
+[sub_resource type="Theme" id="Theme_6oqs8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -33,7 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vfek4")
+texture = ExtResource("2_i41b7")
 expand_mode = 1
 
 [node name="Button" type="Button" parent="."]
@@ -49,6 +52,8 @@ offset_right = 155.0
 offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_rabva")
+theme_override_font_sizes/font_size = 50
 text = "PLAY"
 
 [node name="Button2" type="Button" parent="."]
@@ -64,6 +69,8 @@ offset_right = 155.0
 offset_bottom = -153.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_rabva")
+theme_override_font_sizes/font_size = 50
 text = "SALIR"
 
 [node name="Label" type="Label" parent="."]
@@ -76,6 +83,9 @@ offset_top = 30.0
 offset_right = 250.0
 offset_bottom = 180.0
 grow_horizontal = 2
+theme = SubResource("Theme_6oqs8")
+theme_override_fonts/font = ExtResource("3_rabva")
+theme_override_font_sizes/font_size = 90
 text = "HIGH AND DRY"
 horizontal_alignment = 1
 vertical_alignment = 1
