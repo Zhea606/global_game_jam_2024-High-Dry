@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c7g3g8kjpgsaq"]
+[gd_scene load_steps=50 format=3 uid="uid://c7g3g8kjpgsaq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2ek00"]
 [ext_resource type="Texture2D" uid="uid://buiakm2xkcq8e" path="res://assets/pj/caminando_abajo/000.png" id="2_73u24"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://35we1aoqbd2p" path="res://assets/pj/caminando_abajo/006.png" id="8_twbi5"]
 [ext_resource type="Texture2D" uid="uid://epgfnh4m38ou" path="res://assets/pj/caminando_lateral/005.png" id="9_5ac4p"]
 [ext_resource type="Texture2D" uid="uid://bfmxnggc1u8rh" path="res://assets/pj/caminando_abajo/007.png" id="9_b8ucc"]
-[ext_resource type="Texture2D" uid="uid://bv84mykaujdww" path="res://assets/pj/abajo idle.png" id="10_0u5b6"]
+[ext_resource type="Texture2D" uid="uid://bv84mykaujdww" path="res://assets/pj/abajo idle.png" id="10_j53i8"]
 [ext_resource type="Texture2D" uid="uid://bos5lmukcfdc6" path="res://assets/pj/caminando_arriba/000.png" id="10_m5mbc"]
 [ext_resource type="Texture2D" uid="uid://cpoiog5jymn76" path="res://assets/pj/caminando_lateral/006.png" id="10_owt18"]
 [ext_resource type="Texture2D" uid="uid://e2sxwb0kcb0c" path="res://assets/pj/caminando_lateral/007.png" id="11_8leqt"]
@@ -29,8 +29,20 @@
 [ext_resource type="Texture2D" uid="uid://27fvk47a3d1" path="res://assets/pj/caminando_arriba/005.png" id="15_63itt"]
 [ext_resource type="Texture2D" uid="uid://drec4v82avmtf" path="res://assets/pj/caminando_arriba/006.png" id="16_c1itb"]
 [ext_resource type="Texture2D" uid="uid://bvxmb1qhkdhee" path="res://assets/pj/caminando_arriba/007.png" id="17_2th67"]
-[ext_resource type="Texture2D" uid="uid://bbfrhsyqn1iug" path="res://assets/pj/arriba idle.png" id="19_eemhc"]
-[ext_resource type="Texture2D" uid="uid://dat0tjwk5yksk" path="res://assets/barra/barra_de_high.png" id="28_2x4td"]
+[ext_resource type="Texture2D" uid="uid://bbfrhsyqn1iug" path="res://assets/pj/arriba idle.png" id="19_mh05m"]
+[ext_resource type="Texture2D" uid="uid://dat0tjwk5yksk" path="res://assets/barra/barra_de_high.png" id="30_k2u3n"]
+[ext_resource type="Texture2D" uid="uid://ba8v1u2o0stox" path="res://assets/coleccionables/pickup/000.png" id="30_scubi"]
+[ext_resource type="Texture2D" uid="uid://dv1i201fw7gae" path="res://assets/coleccionables/pickup/001.png" id="31_xn46e"]
+[ext_resource type="Texture2D" uid="uid://b5ksj6ieldm2f" path="res://assets/coleccionables/pickup/002.png" id="32_k15se"]
+[ext_resource type="Texture2D" uid="uid://dms6q10seo3r7" path="res://assets/coleccionables/pickup/003.png" id="33_3g7i1"]
+[ext_resource type="Texture2D" uid="uid://dx8sbh4vbdpjx" path="res://assets/coleccionables/pickup/004.png" id="34_vwcie"]
+[ext_resource type="Texture2D" uid="uid://bniy7byfe7ets" path="res://assets/coleccionables/pickup/005.png" id="35_43txs"]
+[ext_resource type="Texture2D" uid="uid://uog1462nn01p" path="res://assets/coleccionables/pickup/006.png" id="36_p121j"]
+[ext_resource type="Texture2D" uid="uid://dcgohdi0sc7yj" path="res://assets/coleccionables/pickup/007.png" id="37_bm6u1"]
+[ext_resource type="Texture2D" uid="uid://lbxov7u8uxds" path="res://assets/coleccionables/pickup/008.png" id="38_b5rwu"]
+[ext_resource type="Texture2D" uid="uid://duavvsv5qeo1k" path="res://assets/coleccionables/pickup/010.png" id="39_p24t4"]
+[ext_resource type="Texture2D" uid="uid://y7062ar2xwbv" path="res://assets/coleccionables/pickup/011.png" id="40_tih2m"]
+[ext_resource type="Texture2D" uid="uid://cx1w0fufcqbrr" path="res://assets/coleccionables/pickup/012.png" id="41_14c2v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pe0og"]
 animations = [{
@@ -65,7 +77,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_0u5b6")
+"texture": ExtResource("10_j53i8")
 }],
 "loop": true,
 "name": &"abajoIdle",
@@ -102,7 +114,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("19_eemhc")
+"texture": ExtResource("19_mh05m")
 }],
 "loop": true,
 "name": &"arribaIdle",
@@ -150,7 +162,51 @@ animations = [{
 size = Vector2(22.8572, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ibhf"]
-size = Vector2(22.8572, 61)
+size = Vector2(22.8572, 35.2857)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_klm4y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_scubi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_xn46e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_k15se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_3g7i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_vwcie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_43txs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_p121j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_bm6u1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_b5rwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_p24t4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_tih2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_14c2v")
+}],
+"loop": false,
+"name": &"pickup",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_roag8"]
 bg_color = Color(0.301961, 0.584314, 0.0941176, 1)
@@ -170,7 +226,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(1.42857, 2.85714)
 sprite_frames = SubResource("SpriteFrames_pe0og")
-animation = &"abajoIdle"
+animation = &"arribaIdle"
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
@@ -193,8 +249,14 @@ position = Vector2(-1.42857, 8.57143)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HitBox"]
-position = Vector2(1.42859, -5.21432)
+position = Vector2(1.42859, 7.64284)
 shape = SubResource("RectangleShape2D_8ibhf")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_klm4y")
+animation = &"pickup"
+frame = 11
+frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -208,27 +270,32 @@ clip_contents = true
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 50.0
+offset_left = 12.0
+offset_top = 16.0
+offset_right = 1.0
+offset_bottom = 66.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+metadata/_edit_group_ = true
 
 [node name="HighProgressBar" type="ProgressBar" parent="CanvasLayer/Container"]
 z_index = 1
 layout_mode = 1
-offset_left = 11.0
-offset_top = 7.0
-offset_right = 384.0
-offset_bottom = 40.0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 387.0
+offset_bottom = 43.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_roag8")
 value = 50.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Container"]
-z_index = 2
+z_index = 1
 layout_mode = 0
-offset_right = 397.0
-offset_bottom = 47.0
-texture = ExtResource("28_2x4td")
+offset_left = 3.0
+offset_right = 400.0
+offset_bottom = 54.0
+texture = ExtResource("30_k2u3n")
 
 [node name="llave" type="TextureRect" parent="CanvasLayer/Container"]
 modulate = Color(1, 1, 1, 0.196078)
@@ -250,16 +317,12 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="CanvasLayer/Container"]
 layout_mode = 1
-anchors_preset = 6
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
 offset_left = -95.0
-offset_top = -11.5
-offset_bottom = 11.5
+offset_bottom = 30.0
 grow_horizontal = 0
-grow_vertical = 2
 label_settings = SubResource("LabelSettings_av7yi")
 
 [connection signal="area_entered" from="CharacterBody2D/HitBox" to="CharacterBody2D" method="_on_hit_box_area_entered"]

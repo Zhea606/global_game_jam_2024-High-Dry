@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://0v4w33i0kjxv"]
+[gd_scene load_steps=9 format=3 uid="uid://0v4w33i0kjxv"]
 
 [ext_resource type="Script" path="res://scenes/Splash2/Control.gd" id="1_x1fic"]
 [ext_resource type="Texture2D" uid="uid://cgg5orbgh8y8i" path="res://scenes/Splash/High & Dry inicio.png" id="2_5qigw"]
 [ext_resource type="FontFile" uid="uid://dwvi8w058xiym" path="res://fonts/VT323/VT323-Regular.ttf" id="3_c0wk3"]
+[ext_resource type="AudioStream" uid="uid://bl6fwe5k44hep" path="res://sounds/cumbia creditos.mp3" id="4_yd1vj"]
 
 [sub_resource type="Theme" id="Theme_q2mi6"]
 
@@ -47,11 +48,15 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Panel2"]
 custom_minimum_size = Vector2(400, 100)
-layout_mode = 0
-offset_left = 316.0
-offset_top = 50.0
-offset_right = 836.0
-offset_bottom = 153.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_top = 30.0
+offset_right = 260.0
+offset_bottom = 133.0
+grow_horizontal = 2
 scale = Vector2(1, 1.189)
 theme_override_fonts/font = ExtResource("3_c0wk3")
 theme_override_font_sizes/font_size = 80
@@ -90,11 +95,18 @@ label_settings = SubResource("LabelSettings_dgrru")
 horizontal_alignment = 1
 
 [node name="Panel3" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 970.0
-offset_top = 535.0
-offset_right = 1120.0
-offset_bottom = 610.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -104.0
+offset_right = -18.0
+offset_bottom = -29.0
+grow_horizontal = 0
+grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
@@ -106,5 +118,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "INICIO"
+
+[node name="AudioCreditos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yd1vj")
+autoplay = true
 
 [connection signal="pressed" from="Panel3/Button" to="." method="_on_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcp3ewthsu17w"]
+[gd_scene load_steps=15 format=3 uid="uid://dcp3ewthsu17w"]
 
 [ext_resource type="Script" path="res://scenes/cinematica/Cinematica.gd" id="1_ei44f"]
 [ext_resource type="Texture2D" uid="uid://pvxfpe4dltbs" path="res://scenes/cinematica/vineta cinematica 0.png" id="2_b572i"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://omkotb6bghfw" path="res://scenes/cinematica/vineta cinematica 4.png" id="6_pm1eb"]
 [ext_resource type="Texture2D" uid="uid://x8dv5p4vufgb" path="res://scenes/cinematica/vineta cinematica 5.png" id="7_qsw2x"]
 [ext_resource type="FontFile" uid="uid://dwvi8w058xiym" path="res://fonts/VT323/VT323-Regular.ttf" id="8_0dlev"]
+[ext_resource type="AudioStream" uid="uid://ckf8t5it3tf56" path="res://sounds/sfx/Sfx_-_Cinematic_sound.wav" id="9_ggbvp"]
+[ext_resource type="AudioStream" uid="uid://0vsdysxlcxsx" path="res://sounds/eructo_personaje.wav" id="10_6ap2r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h4ltw"]
 animations = [{
@@ -48,9 +50,11 @@ bg_color = Color(0, 0, 0, 0.784314)
 
 [node name="Cinematica" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ei44f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -72,5 +76,14 @@ theme_override_fonts/font = ExtResource("8_0dlev")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_5lqme")
 text = "CONTINUAR"
+
+[node name="AudioCinematica" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ggbvp")
+volume_db = 10.0
+
+[node name="AudioContinuar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_6ap2r")
+volume_db = 22.554
+pitch_scale = 2.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

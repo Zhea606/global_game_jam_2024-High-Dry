@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://rx7rv40mtm4p"]
+[gd_scene load_steps=6 format=3 uid="uid://rx7rv40mtm4p"]
 
 [ext_resource type="Script" path="res://scripts/llave.gd" id="1_7gulp"]
 [ext_resource type="Texture2D" uid="uid://d0mexk8kab4wx" path="res://assets/coleccionables/llave.png" id="2_ertxl"]
 [ext_resource type="PackedScene" uid="uid://b3n5rgsxlu228" path="res://scenes/pointlight/point_light_2d.tscn" id="3_qw8d0"]
+[ext_resource type="AudioStream" uid="uid://ddr2uqueg3wno" path="res://sounds/agarra_caramelo.mp3" id="4_ta40n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rebf"]
 size = Vector2(130, 130)
@@ -22,5 +23,8 @@ shape = SubResource("RectangleShape2D_2rebf")
 
 [node name="PointLight2D" parent="." instance=ExtResource("3_qw8d0")]
 texture_scale = 2.0
+
+[node name="AudioLlave" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ta40n")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

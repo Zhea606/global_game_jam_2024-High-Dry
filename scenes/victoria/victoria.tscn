@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcrnobp0j3tq2"]
+[gd_scene load_steps=6 format=3 uid="uid://bcrnobp0j3tq2"]
 
 [ext_resource type="Script" path="res://scenes/victoria/victoria.gd" id="1_7hwab"]
 [ext_resource type="Texture2D" uid="uid://bl3wmfr4xi8no" path="res://assets/menu/Victoria.png" id="2_v1g22"]
 [ext_resource type="FontFile" uid="uid://dwvi8w058xiym" path="res://fonts/VT323/VT323-Regular.ttf" id="3_j7vsa"]
+[ext_resource type="AudioStream" uid="uid://cc2len4wtru4f" path="res://sounds/Music_High__Dry_Win.mp3" id="4_1wdj3"]
 
 [sub_resource type="Theme" id="Theme_q2mi6"]
 
@@ -75,5 +76,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "INICIO"
+
+[node name="AudioVictoria" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1wdj3")
+autoplay = true
 
 [connection signal="pressed" from="Panel3/Button" to="." method="_on_button_pressed"]

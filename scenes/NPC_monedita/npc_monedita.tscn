@@ -12,7 +12,7 @@ position = Vector2(0, 1)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_0mwia")
 speech = NodePath("Sprite2D/CenterContainer/Label")
-line1 = ["Eh amigo", "Dame una monedita para el subidon", "Gil", "Gato"]
+line1 = ["Eh amigo", "Dame una monedita pa", "Gil", "Gato"]
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

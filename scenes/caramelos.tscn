@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0x257bbl1tn4"]
+[gd_scene load_steps=6 format=3 uid="uid://d0x257bbl1tn4"]
 
 [ext_resource type="Script" path="res://scripts/caramelos.gd" id="1_g4pmv"]
 [ext_resource type="Texture2D" uid="uid://djd8a8deqb7cg" path="res://assets/coleccionables/caramelo.png" id="2_5gf1v"]
 [ext_resource type="PackedScene" uid="uid://b3n5rgsxlu228" path="res://scenes/pointlight/point_light_2d.tscn" id="3_h8eiy"]
+[ext_resource type="AudioStream" uid="uid://cmnmp7e45uihl" path="res://sounds/huele_flores(pwflroes).mp3" id="4_irpru"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ag5f6"]
 size = Vector2(100, 45.0001)
@@ -23,5 +24,8 @@ shape = SubResource("RectangleShape2D_ag5f6")
 
 [node name="PointLight2D" parent="." instance=ExtResource("3_h8eiy")]
 texture_scale = 2.0
+
+[node name="AudioCaramelo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_irpru")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
