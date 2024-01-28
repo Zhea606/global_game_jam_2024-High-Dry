@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://xuk7m1jlrts8"
+path="res://.godot/imported/llaves.dialogue-1e16db540c2fbbb59a486da40dd125a0.tres"
+
+[deps]
+
+source_file="res://dialogues/llaves.dialogue"
+dest_files=["res://.godot/imported/llaves.dialogue-1e16db540c2fbbb59a486da40dd125a0.tres"]
+
+[params]
+
+defaults=true

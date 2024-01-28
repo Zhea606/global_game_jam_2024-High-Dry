@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cps7dx5ih08pn"]
+
+[ext_resource type="Script" path="res://scripts/dialogo.gd" id="1_8f1yd"]
+[ext_resource type="Texture2D" uid="uid://bajh4thvfla06" path="res://assets/npcs/fondo vieja.png" id="2_21p7d"]
+[ext_resource type="Texture2D" uid="uid://c8i5o65cws0qh" path="res://assets/npcs/vieja png.png" id="3_el8w0"]
+
+[node name="dialogo_abuelita" type="CanvasLayer"]
+script = ExtResource("1_8f1yd")
+personaje = "abuelita"
+
+[node name="fondo" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_21p7d")
+
+[node name="background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="personaje" type="TextureRect" parent="background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -291.0
+offset_right = 291.0
+offset_bottom = 581.0
+grow_horizontal = 2
+texture = ExtResource("3_el8w0")
+stretch_mode = 4

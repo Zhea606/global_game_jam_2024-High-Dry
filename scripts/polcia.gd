@@ -10,6 +10,8 @@ var max_speed = 90
 
 @onready var linterna = $PointLight2D
 
+var stopped = false
+
 func _process(delta: float) -> void:	
 	if not colision_horizontal():
 		mover_policia()
@@ -35,14 +37,21 @@ func colision_horizontal() -> bool:
 			return false
 
 func mover_policia():
-	policia.play("caminar")
-	if !policia.flip_h:
-		velocity.x = min(velocity.x + move_speed, max_speed)
-	else:
-		velocity.x = max(velocity.x - move_speed, -max_speed)
+	if not stopped:
+		policia.play("caminar")
+		if !policia.flip_h:
+			velocity.x = min(velocity.x + move_speed, max_speed)
+		else:
+			velocity.x = max(velocity.x - move_speed, -max_speed)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		get_tree().paused = true
 		get_tree().change_scene_to_file("res://scenes/Muerte/control.tscn")
+
+func detener_policias():
+	stopped = true
+
+func renaudar_policias():
+	stopped = false
