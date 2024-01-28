@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7g3g8kjpgsaq"]
+[gd_scene load_steps=18 format=3 uid="uid://c7g3g8kjpgsaq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2ek00"]
 [ext_resource type="Texture2D" uid="uid://b658ej5yr5joo" path="res://assets/pj/turro idle.png" id="2_hbykf"]
@@ -63,6 +63,9 @@ size = Vector2(22.8572, 61)
 bg_color = Color(0.301961, 0.584314, 0.0941176, 1)
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_av7yi"]
+font_size = 21
 
 [node name="Player" type="Node2D" groups=["Player"]]
 scale = Vector2(0.7, 0.7)
@@ -141,6 +144,20 @@ grow_vertical = 2
 texture = ExtResource("12_35sc3")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Container"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_av7yi")
 
 [connection signal="area_entered" from="CharacterBody2D/HitBox" to="CharacterBody2D" method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]

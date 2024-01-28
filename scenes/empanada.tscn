@@ -7,17 +7,20 @@
 size = Vector2(130, 105)
 
 [node name="Empanada" type="Area2D" groups=["Empanada"]]
+light_mask = 2
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_l1xpn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.905882, 0.337255, 0.423529, 1)
-position = Vector2(0.5, -0.499992)
-scale = Vector2(3.408, 3.408)
-texture = ExtResource("2_ckjxm")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.78814e-06, 2.5)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_acm23")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.905882, 0.337255, 0.423529, 1)
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(3.408, 3.408)
+texture = ExtResource("2_ckjxm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

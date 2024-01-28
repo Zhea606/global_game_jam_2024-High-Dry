@@ -49,7 +49,7 @@ func _on_inimputable_body_entered(body: Node2D) -> void:
 
 func _on_infidelidad_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		$CanvasLayer/Infidelidad/Label.visible = true
+		#$CanvasLayer/Infidelidad/Label.visible = true
 		personaje_en_area = true
 		casa = "infidelidad"
 

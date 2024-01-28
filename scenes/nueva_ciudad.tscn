@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2r1f7tbtkm0a"]
+[gd_scene load_steps=17 format=3 uid="uid://d2r1f7tbtkm0a"]
 
 [ext_resource type="Texture2D" uid="uid://bkxq68ceieag4" path="res://assets/tilemap/ciudad.png" id="1_2c1g8"]
 [ext_resource type="Script" path="res://scripts/nueva_ciudad.gd" id="1_vuht1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ce0ncnuvutryj" path="res://scenes/flores.tscn" id="6_5rr5p"]
 [ext_resource type="PackedScene" uid="uid://rx7rv40mtm4p" path="res://scenes/llave.tscn" id="7_5plcf"]
 [ext_resource type="PackedScene" uid="uid://hvrw8b0njhue" path="res://scenes/mate.tscn" id="8_5mvbr"]
+[ext_resource type="PackedScene" uid="uid://b3n5rgsxlu228" path="res://scenes/pointlight/point_light_2d.tscn" id="9_lmbgj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xac8p"]
 texture = ExtResource("1_2c1g8")
@@ -917,14 +918,18 @@ position = Vector2(953, 618)
 
 [node name="luces" type="CanvasGroup" parent="."]
 
+[node name="PointLight2D" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(97, 560)
+
+[node name="PointLight2D2" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(336, 559)
+
 [node name="Player" parent="." instance=ExtResource("2_xvnuw")]
 position = Vector2(31, 613)
 scale = Vector2(0.5, 0.5)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.247059, 0.247059, 0.247059, 1)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="LavaPlatos" to="." method="_on_lava_platos_body_entered"]
 [connection signal="body_exited" from="LavaPlatos" to="." method="_on_lava_platos_body_exited"]
