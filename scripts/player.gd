@@ -8,6 +8,7 @@ var speed_movimiento_aleatorio = 150
 @onready var barraHigh = $"../CanvasLayer/Container/HighProgressBar"
 @onready var timer = $"../Timer"
 @onready var llave=$"../CanvasLayer/Container/llave"
+@onready var mensaje=$"../CanvasLayer/Container/Label"
 
 @onready var camara = $Camera2D
 
@@ -41,6 +42,17 @@ func _physics_process(delta):
 	else:
 		sprite.play("default")
 	move_and_slide()
+	if barraHigh.value  <= 0:
+		mensaje.text = "RESACA, GAME OVER"	
+	elif barraHigh.value <= 30:
+		mensaje.text = "CONTROLA TU ESTABILIDAD, TE VA A DAR RESACA"
+	
+	if barraHigh.value >= barraHigh.max_value:
+		mensaje.text = "PALIDA, GAME OVER"
+	elif  barraHigh.value >= 70:
+		mensaje.text = "CONTROLA TU ESTABILIDAD, TE VA A DAR LA PALIDA"
+
+	
 
 func _on_hit_box_area_entered(area):
 	if area.is_in_group("Flores"):
