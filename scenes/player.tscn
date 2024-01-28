@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://epgfnh4m38ou" path="res://assets/pj/caminando_lateral/005.png" id="9_5ac4p"]
 [ext_resource type="Texture2D" uid="uid://cpoiog5jymn76" path="res://assets/pj/caminando_lateral/006.png" id="10_owt18"]
 [ext_resource type="Texture2D" uid="uid://e2sxwb0kcb0c" path="res://assets/pj/caminando_lateral/007.png" id="11_8leqt"]
+[ext_resource type="Texture2D" uid="uid://d0mexk8kab4wx" path="res://assets/coleccionables/llave.png" id="12_35sc3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pe0og"]
 animations = [{
@@ -52,19 +53,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_roag8"]
-bg_color = Color(0.301961, 0.584314, 0.0941176, 1)
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-
-[sub_resource type="LabelSettings" id="LabelSettings_o2dff"]
-font_size = 9
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vt1q0"]
 size = Vector2(22.8572, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ibhf"]
 size = Vector2(22.8572, 61)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_roag8"]
+bg_color = Color(0.301961, 0.584314, 0.0941176, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
 
 [node name="Player" type="Node2D" groups=["Player"]]
 scale = Vector2(0.7, 0.7)
@@ -75,40 +73,18 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(1.42857, 2.85714)
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_pe0og")
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-1.42856, 3.05176e-05)
-scale = Vector2(1, 1)
 zoom = Vector2(6.35, 6.35)
+limit_left = 0
+limit_top = 0
+limit_right = 1153
+limit_bottom = 650
 script = ExtResource("2_yhc8c")
 metadata/_edit_group_ = true
-
-[node name="HighProgressBar" type="ProgressBar" parent="CharacterBody2D/Camera2D"]
-z_index = 1
-offset_left = -157.143
-offset_top = -88.5715
-offset_right = 76.8571
-offset_bottom = -61.5715
-scale = Vector2(0.542861, 0.581343)
-theme_override_styles/fill = SubResource("StyleBoxFlat_roag8")
-value = 50.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="CharacterBody2D/Camera2D"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 41.4286
-offset_top = -92.8572
-offset_right = 323.429
-offset_bottom = -69.8572
-grow_horizontal = 0
-text = "SIN LLAVE"
-label_settings = SubResource("LabelSettings_o2dff")
-metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 21.0714)
@@ -121,12 +97,50 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HitBox"]
 position = Vector2(1.42859, -5.21432)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8ibhf")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Container" type="Control" parent="CanvasLayer"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HighProgressBar" type="ProgressBar" parent="CanvasLayer/Container"]
+z_index = 1
+layout_mode = 1
+offset_right = 397.0
+offset_bottom = 47.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_roag8")
+value = 50.0
+
+[node name="llave" type="TextureRect" parent="CanvasLayer/Container"]
+modulate = Color(1, 1, 1, 0.196078)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -746.0
+offset_top = -44.0
+offset_right = -657.0
+offset_bottom = 46.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("12_35sc3")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="area_entered" from="CharacterBody2D/HitBox" to="CharacterBody2D" method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]

@@ -48,9 +48,9 @@ animations = [{
 size = Vector2(18, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ehjf"]
-size = Vector2(22.4944, 5.30632)
+size = Vector2(32.1036, 11.4685)
 
-[node name="polcia" type="CharacterBody2D"]
+[node name="polcia" type="CharacterBody2D" groups=["Policia"]]
 script = ExtResource("1_xy5au")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -73,7 +73,7 @@ position = Vector2(-42.1053, -21.0526)
 scale = Vector2(10.5263, 10.5263)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D/Area2D"]
-position = Vector2(20.0518, 2.25676)
+position = Vector2(27.4772, 1.91441)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6ehjf")
 

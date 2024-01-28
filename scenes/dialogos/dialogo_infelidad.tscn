@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwweg2qttkks"]
+
+[ext_resource type="Script" path="res://scripts/dialogo.gd" id="1_24vic"]
+[ext_resource type="Texture2D" uid="uid://b6updsysnv0jb" path="res://assets/npcs/fondo infidelidad.png" id="2_05be0"]
+
+[node name="dialogo_mickey" type="CanvasLayer"]
+script = ExtResource("1_24vic")
+personaje = "chica"
+
+[node name="fondo" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_05be0")

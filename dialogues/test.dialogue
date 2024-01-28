@@ -1,0 +1,36 @@
+~ mickey
+
+Mickey: Jo jo amiguito, aquí tienes una mousekherramienta misteriosa. * Te ofrece un caramelo *
+Aceptas?
+- Si
+	Mickey: Que te diviertas jo jo.
+- Si
+	Mickey: No tenias eleccion verdad? Jo jo.
+	=> END
+=> END!
+
+~ abuelita
+Abuelita: * Te muestra los platos * …Menos mal que llegaste, mijo! Lavame los platos ya que estas…
+Aceptas?
+- Si
+- Si
+Abuelita: * Se da vuelta y grita * PERO QUIÉN SO’ VO?! FUERAAA
+=> END
+
+~ inimputable
+Inimputable: Veni, pasá, buscá una silla al sótano
+Aceptas?
+- Si
+- Si
+Inimputable: * Te pega 7 tiros *
+Inimputable: * Te mea *
+Inimputable: * Se toma un whiskey y se papotea *
+Inimputable: En 10 días salgo hermano, soy inimputable.
+=> END
+
+~ chica
+Chica: Ay no! Es mi marido! Andate por la ventana!
+Ehhhhh....
+- Si
+- Si
+=> END

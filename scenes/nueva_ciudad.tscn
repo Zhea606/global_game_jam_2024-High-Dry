@@ -1,8 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2r1f7tbtkm0a"]
+[gd_scene load_steps=16 format=3 uid="uid://d2r1f7tbtkm0a"]
 
 [ext_resource type="Texture2D" uid="uid://bkxq68ceieag4" path="res://assets/tilemap/ciudad.png" id="1_2c1g8"]
+[ext_resource type="Script" path="res://scripts/nueva_ciudad.gd" id="1_vuht1"]
 [ext_resource type="PackedScene" uid="uid://c7g3g8kjpgsaq" path="res://scenes/player.tscn" id="2_xvnuw"]
 [ext_resource type="PackedScene" uid="uid://cslqqfvfb5uor" path="res://scenes/polcia.tscn" id="3_kgyye"]
+[ext_resource type="PackedScene" uid="uid://b34awvoht35wi" path="res://scenes/empanada.tscn" id="4_5jj32"]
+[ext_resource type="PackedScene" uid="uid://d0x257bbl1tn4" path="res://scenes/caramelos.tscn" id="5_t7fkq"]
+[ext_resource type="PackedScene" uid="uid://ce0ncnuvutryj" path="res://scenes/flores.tscn" id="6_5rr5p"]
+[ext_resource type="PackedScene" uid="uid://rx7rv40mtm4p" path="res://scenes/llave.tscn" id="7_5plcf"]
+[ext_resource type="PackedScene" uid="uid://hvrw8b0njhue" path="res://scenes/mate.tscn" id="8_5mvbr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xac8p"]
 texture = ExtResource("1_2c1g8")
@@ -800,13 +806,16 @@ size = Vector2(20, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgdoc"]
 size = Vector2(20, 29)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_loosh"]
-size = Vector2(20, 28)
+[sub_resource type="LabelSettings" id="LabelSettings_getne"]
+font_size = 8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10i7o"]
 size = Vector2(20, 27)
 
 [node name="NuevaCiudad" type="Node2D"]
+script = ExtResource("1_vuht1")
+metadata/_edit_horizontal_guides_ = [0.0, 650.0, 649.0]
+metadata/_edit_vertical_guides_ = [1153.0]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3lhk5")
@@ -818,7 +827,7 @@ layer_2/name = "basura"
 layer_2/tile_data = PackedInt32Array(3735595, 3145728, 1, 3801131, 3145728, 2, 3735596, 3211264, 1, 3801132, 3211264, 2, 3735597, 3276800, 1, 3801133, 3276800, 2, 3735614, 3145728, 1, 3801150, 3145728, 2, 3735615, 3211264, 1, 3801151, 3211264, 2, 3735616, 3276800, 1, 3801152, 3276800, 2, 2621540, 3145728, 1, 2687076, 3145728, 2, 2621541, 3211264, 1, 2687077, 3211264, 2, 2621542, 3276800, 1, 2687078, 3276800, 2, 2621471, 3145728, 1, 2687007, 3145728, 2, 2621472, 3211264, 1, 2687008, 3211264, 2, 2621473, 3276800, 1, 2687009, 3276800, 2, 1376265, 3145728, 1, 1441801, 3145728, 2, 1376266, 3211264, 1, 1441802, 3211264, 2, 1376267, 3276800, 1, 1441803, 3276800, 2, 1376318, 3145728, 1, 1441854, 3145728, 2, 1376319, 3211264, 1, 1441855, 3211264, 2, 1376320, 3276800, 1, 1441856, 3276800, 2, 1376334, 3145728, 3, 1441870, 3145728, 4, 1507406, 3145728, 5, 1376335, 3211264, 3, 1441871, 3211264, 4, 1507407, 3211264, 5, 1376336, 3276800, 3, 1441872, 3276800, 4, 1507408, 3276800, 5, 327746, 3145728, 3, 393282, 3145728, 4, 458818, 3145728, 5, 327747, 3211264, 3, 393283, 3211264, 4, 458819, 3211264, 5, 327748, 3276800, 3, 393284, 3276800, 4, 458820, 3276800, 5, 1376289, 3145728, 3, 1441825, 3145728, 4, 1507361, 3145728, 5, 1376290, 3211264, 3, 1441826, 3211264, 4, 1507362, 3211264, 5, 1376291, 3276800, 3, 1441827, 3276800, 4, 1507363, 3276800, 5, 2621500, 3145728, 3, 2687036, 3145728, 4, 2752572, 3145728, 5, 2621501, 3211264, 3, 2687037, 3211264, 4, 2752573, 3211264, 5, 2621502, 3276800, 3, 2687038, 3276800, 4, 2752574, 3276800, 5)
 
 [node name="LavaPlatos" type="Area2D" parent="." groups=["Platos"]]
-position = Vector2(760, 570)
+position = Vector2(760, 582)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LavaPlatos"]
@@ -826,44 +835,102 @@ position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_cqmpg")
 
 [node name="Mickey" type="Area2D" parent="." groups=["Mickey"]]
-position = Vector2(760, 400)
+position = Vector2(760, 410)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mickey"]
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_mgdoc")
 
-[node name="Vip" type="Area2D" parent="." groups=["Vip"]]
-position = Vector2(411, 211)
+[node name="Inimputable" type="Area2D" parent="." groups=["Mickey"]]
+position = Vector2(459, 413)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vip"]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_loosh")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inimputable"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_mgdoc")
+
+[node name="Infidelidad" type="Area2D" parent="." groups=["Mickey"]]
+position = Vector2(160, 592)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Infidelidad"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_mgdoc")
+
+[node name="Label" type="Label" parent="Infidelidad"]
+visible = false
+offset_left = -16.0
+offset_top = -42.0
+offset_right = 24.0
+offset_bottom = -19.0
+text = "PRESS E"
+label_settings = SubResource("LabelSettings_getne")
 
 [node name="Casa" type="Area2D" parent="." groups=["Casa"]]
-position = Vector2(1011, 211)
+position = Vector2(1011, 223)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Casa"]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_10i7o")
 
+[node name="policias" type="CanvasGroup" parent="."]
+
+[node name="polcia" parent="policias" instance=ExtResource("3_kgyye")]
+position = Vector2(26, 454)
+scale = Vector2(0.6, 0.6)
+
+[node name="polcia2" parent="policias" instance=ExtResource("3_kgyye")]
+position = Vector2(324, 284)
+scale = Vector2(0.6, 0.6)
+
+[node name="polcia3" parent="policias" instance=ExtResource("3_kgyye")]
+position = Vector2(332, 106)
+scale = Vector2(0.6, 0.6)
+
+[node name="items" type="CanvasGroup" parent="."]
+
+[node name="Empanada" parent="items" instance=ExtResource("4_5jj32")]
+position = Vector2(917, 278)
+
+[node name="Caramelos" parent="items" instance=ExtResource("5_t7fkq")]
+position = Vector2(236, 269)
+
+[node name="Flores" parent="items" instance=ExtResource("6_5rr5p")]
+position = Vector2(372, 457)
+
+[node name="Flores2" parent="items" instance=ExtResource("6_5rr5p")]
+position = Vector2(907, 94)
+
+[node name="Llave" parent="items" instance=ExtResource("7_5plcf")]
+position = Vector2(66, 98)
+
+[node name="Mate" parent="items" instance=ExtResource("8_5mvbr")]
+position = Vector2(911, 453)
+
+[node name="Caramelos2" parent="items" instance=ExtResource("5_t7fkq")]
+position = Vector2(464, 617)
+
+[node name="Mate2" parent="items" instance=ExtResource("8_5mvbr")]
+position = Vector2(953, 618)
+
+[node name="luces" type="CanvasGroup" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("2_xvnuw")]
 position = Vector2(31, 613)
 scale = Vector2(0.5, 0.5)
 
-[node name="polcia" parent="." instance=ExtResource("3_kgyye")]
-position = Vector2(26, 454)
-scale = Vector2(0.6, 0.6)
-
-[node name="polcia2" parent="." instance=ExtResource("3_kgyye")]
-position = Vector2(324, 284)
-scale = Vector2(0.6, 0.6)
-
-[node name="polcia3" parent="." instance=ExtResource("3_kgyye")]
-position = Vector2(332, 106)
-scale = Vector2(0.6, 0.6)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[connection signal="body_entered" from="LavaPlatos" to="." method="_on_lava_platos_body_entered"]
+[connection signal="body_exited" from="LavaPlatos" to="." method="_on_lava_platos_body_exited"]
+[connection signal="body_entered" from="Mickey" to="." method="_on_mickey_body_entered"]
+[connection signal="body_exited" from="Mickey" to="." method="_on_mickey_body_exited"]
+[connection signal="body_entered" from="Inimputable" to="." method="_on_inimputable_body_entered"]
+[connection signal="body_exited" from="Inimputable" to="." method="_on_inimputable_body_exited"]
+[connection signal="body_entered" from="Infidelidad" to="." method="_on_infidelidad_body_entered"]
+[connection signal="body_exited" from="Infidelidad" to="." method="_on_infidelidad_body_exited"]
