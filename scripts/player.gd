@@ -13,7 +13,7 @@ var speed_movimiento_aleatorio = 150
 @onready var camara = $Camera2D
 
 @onready var sprite = $AnimatedSprite2D
-
+var estado = ""
 var tiene_llave: bool = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -21,6 +21,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var high_alto = false
 
 func _ready() -> void:
+	sprite.play("default")
 	pass
 
 func _physics_process(delta):
@@ -36,19 +37,30 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
 		sprite.flip_h = false
 		sprite.play("lateral")
+		estado = "normal"
 		if high_alto:
 			vibrar()
 	elif Input.is_action_pressed("ui_right"):
 		sprite.flip_h = true
+		estado = "normal"
 		sprite.play("lateral")
 		if high_alto:
 			vibrar()
 	elif Input.is_action_pressed("ui_down"):
 		sprite.play("abajo")
+		estado = "down"
 	elif Input.is_action_pressed("ui_up"):
 		sprite.play("arriba")
+		estado = "up"
 	else:
-		sprite.play("default")
+		match (estado):
+			"down":
+				sprite.play("abajoIdle")
+			"up":
+				sprite.play("arribaIdle")
+			"normal":
+				sprite.play("default")
+		#sprite.play("default")
 	move_and_slide()
 	if barraHigh.value  <= 0:
 		mensaje.text = "RESACA, GAME OVER"
@@ -63,6 +75,8 @@ func _physics_process(delta):
 	elif  barraHigh.value >= 70:
 		mensaje.text = "CONTROLA TU ESTABILIDAD, TE VA A DAR LA PALIDA"
 		high_alto = true
+	else:
+		high_alto = false
 
 	
 

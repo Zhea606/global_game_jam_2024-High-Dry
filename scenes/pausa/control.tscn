@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfx48yjymslrh"]
+
+[ext_resource type="Script" path="res://scenes/pausa/pausa.gd" id="1_s3lxa"]
+
+[node name="Control" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_s3lxa")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 23
+
+[node name="volver" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "VOLVER AL JUEGO"
+
+[node name="inicio" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "MENU INICIO"
+
+[node name="salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "SALIR"
+
+[connection signal="pressed" from="VBoxContainer/volver" to="." method="_on_volver_pressed"]
+[connection signal="pressed" from="VBoxContainer/inicio" to="." method="_on_inicio_pressed"]
+[connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]

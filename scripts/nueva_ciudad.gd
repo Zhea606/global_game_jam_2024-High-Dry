@@ -9,6 +9,8 @@ var diegote_scene = preload("res://scenes/dialogos/dialogo_diegote.tscn")
 var personaje_en_area = false
 var casa
 
+var escena_pausa = load("res://scenes/pausa/control.tscn")
+
 var casas = {
 	"abuelita": false,
 	"infidelidad": false,
@@ -52,7 +54,11 @@ func _process(delta: float) -> void:
 					var escena = diegote_scene.instantiate()
 					add_child(escena)
 					get_tree().call_group("Player","modificar_high",+20)
-		
+	if Input.is_action_just_pressed("ui_cancel"):
+		var escena = escena_pausa.instantiate()
+		add_child(escena)
+		get_tree().paused = true
+	
 
 func _on_lava_platos_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -105,3 +111,11 @@ func _on_diegote_body_entered(body: Node2D) -> void:
 func _on_diegote_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		personaje_en_area = false
+
+
+func _on_casa_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		if Autoload.llave:
+			Autoload.win_game()
+		else:
+			body.mensaje = "TE FALTA LA LLAVE DE TU CASA"

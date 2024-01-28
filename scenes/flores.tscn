@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce0ncnuvutryj"]
+[gd_scene load_steps=5 format=3 uid="uid://ce0ncnuvutryj"]
 
 [ext_resource type="Script" path="res://scripts/flores.gd" id="1_7wi00"]
 [ext_resource type="Texture2D" uid="uid://cm6hensklofwy" path="res://assets/coleccionables/flor.png" id="2_6lhkt"]
+[ext_resource type="PackedScene" uid="uid://b3n5rgsxlu228" path="res://scenes/pointlight/point_light_2d.tscn" id="3_qrqpr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uif1p"]
 size = Vector2(130, 130)
@@ -18,5 +19,8 @@ texture = ExtResource("2_6lhkt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4.54747e-13, -4.99999)
 shape = SubResource("RectangleShape2D_uif1p")
+
+[node name="PointLight2D" parent="." instance=ExtResource("3_qrqpr")]
+texture_scale = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

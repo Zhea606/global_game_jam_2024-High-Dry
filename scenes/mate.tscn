@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://hvrw8b0njhue"]
+[gd_scene load_steps=5 format=3 uid="uid://hvrw8b0njhue"]
 
 [ext_resource type="Script" path="res://scripts/mate.gd" id="1_k0lxb"]
 [ext_resource type="Texture2D" uid="uid://btnqru6soc25n" path="res://assets/coleccionables/mate.png" id="2_ypa7l"]
+[ext_resource type="PackedScene" uid="uid://b3n5rgsxlu228" path="res://scenes/pointlight/point_light_2d.tscn" id="3_vyvh4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lw3o"]
 size = Vector2(70, 125)
@@ -18,5 +19,8 @@ texture = ExtResource("2_ypa7l")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, -12.5)
 shape = SubResource("RectangleShape2D_1lw3o")
+
+[node name="PointLight2D" parent="." instance=ExtResource("3_vyvh4")]
+texture_scale = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

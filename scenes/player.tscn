@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c7g3g8kjpgsaq"]
+[gd_scene load_steps=37 format=3 uid="uid://c7g3g8kjpgsaq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2ek00"]
 [ext_resource type="Texture2D" uid="uid://buiakm2xkcq8e" path="res://assets/pj/caminando_abajo/000.png" id="2_73u24"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://35we1aoqbd2p" path="res://assets/pj/caminando_abajo/006.png" id="8_twbi5"]
 [ext_resource type="Texture2D" uid="uid://epgfnh4m38ou" path="res://assets/pj/caminando_lateral/005.png" id="9_5ac4p"]
 [ext_resource type="Texture2D" uid="uid://bfmxnggc1u8rh" path="res://assets/pj/caminando_abajo/007.png" id="9_b8ucc"]
+[ext_resource type="Texture2D" uid="uid://bv84mykaujdww" path="res://assets/pj/abajo idle.png" id="10_0u5b6"]
 [ext_resource type="Texture2D" uid="uid://bos5lmukcfdc6" path="res://assets/pj/caminando_arriba/000.png" id="10_m5mbc"]
 [ext_resource type="Texture2D" uid="uid://cpoiog5jymn76" path="res://assets/pj/caminando_lateral/006.png" id="10_owt18"]
 [ext_resource type="Texture2D" uid="uid://e2sxwb0kcb0c" path="res://assets/pj/caminando_lateral/007.png" id="11_8leqt"]
@@ -28,6 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://27fvk47a3d1" path="res://assets/pj/caminando_arriba/005.png" id="15_63itt"]
 [ext_resource type="Texture2D" uid="uid://drec4v82avmtf" path="res://assets/pj/caminando_arriba/006.png" id="16_c1itb"]
 [ext_resource type="Texture2D" uid="uid://bvxmb1qhkdhee" path="res://assets/pj/caminando_arriba/007.png" id="17_2th67"]
+[ext_resource type="Texture2D" uid="uid://bbfrhsyqn1iug" path="res://assets/pj/arriba idle.png" id="19_eemhc"]
+[ext_resource type="Texture2D" uid="uid://dat0tjwk5yksk" path="res://assets/barra/barra_de_high.png" id="28_2x4td"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pe0og"]
 animations = [{
@@ -62,6 +65,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("10_0u5b6")
+}],
+"loop": true,
+"name": &"abajoIdle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("10_m5mbc")
 }, {
 "duration": 1.0,
@@ -87,6 +98,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"arriba",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_eemhc")
+}],
+"loop": true,
+"name": &"arribaIdle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -151,7 +170,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(1.42857, 2.85714)
 sprite_frames = SubResource("SpriteFrames_pe0og")
-animation = &"abajo"
+animation = &"abajoIdle"
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
@@ -178,7 +197,7 @@ position = Vector2(1.42859, -5.21432)
 shape = SubResource("RectangleShape2D_8ibhf")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -197,10 +216,19 @@ size_flags_vertical = 3
 [node name="HighProgressBar" type="ProgressBar" parent="CanvasLayer/Container"]
 z_index = 1
 layout_mode = 1
-offset_right = 397.0
-offset_bottom = 47.0
+offset_left = 11.0
+offset_top = 7.0
+offset_right = 384.0
+offset_bottom = 40.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_roag8")
 value = 50.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Container"]
+z_index = 2
+layout_mode = 0
+offset_right = 397.0
+offset_bottom = 47.0
+texture = ExtResource("28_2x4td")
 
 [node name="llave" type="TextureRect" parent="CanvasLayer/Container"]
 modulate = Color(1, 1, 1, 0.196078)
