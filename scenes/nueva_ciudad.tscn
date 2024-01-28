@@ -920,12 +920,127 @@ position = Vector2(97, 560)
 [node name="PointLight2D2" parent="luces" instance=ExtResource("9_lmbgj")]
 position = Vector2(336, 559)
 
+[node name="PointLight2D3" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(578, 561)
+
+[node name="PointLight2D4" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(48, 391)
+
+[node name="PointLight2D5" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(208, 391)
+
+[node name="PointLight2D6" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(398, 391)
+
+[node name="PointLight2D7" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(648, 391)
+
+[node name="PointLight2D8" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(1038, 561)
+
+[node name="PointLight2D9" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(968, 382)
+
+[node name="PointLight2D10" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(969, 192)
+
+[node name="PointLight2D11" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(748, 202)
+
+[node name="PointLight2D12" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(518, 201)
+
+[node name="PointLight2D13" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(309, 202)
+
+[node name="PointLight2D14" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(58, 201)
+
+[node name="PointLight2D15" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(127, 43)
+
+[node name="PointLight2D16" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(298, 41)
+
+[node name="PointLight2D17" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(457, 42)
+
+[node name="PointLight2D18" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(627, 42)
+
+[node name="PointLight2D19" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(779, 42)
+
+[node name="PointLight2D20" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(948, 41)
+
+[node name="PointLight2D21" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(1132, 97)
+
+[node name="PointLight2D22" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(918, 106)
+
+[node name="PointLight2D23" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(545, 102)
+
+[node name="PointLight2D24" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(251, 102)
+
+[node name="PointLight2D25" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(10, 99)
+
+[node name="PointLight2D26" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(1126, 267)
+
+[node name="PointLight2D27" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(912, 276)
+
+[node name="PointLight2D28" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(539, 272)
+
+[node name="PointLight2D29" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(245, 272)
+
+[node name="PointLight2D30" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(4, 269)
+
+[node name="PointLight2D31" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(1130, 450)
+
+[node name="PointLight2D32" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(916, 459)
+
+[node name="PointLight2D33" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(543, 455)
+
+[node name="PointLight2D34" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(249, 455)
+
+[node name="PointLight2D35" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(8, 452)
+
+[node name="PointLight2D36" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(1128, 612)
+
+[node name="PointLight2D37" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(914, 621)
+
+[node name="PointLight2D38" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(541, 617)
+
+[node name="PointLight2D39" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(247, 617)
+
+[node name="PointLight2D40" parent="luces" instance=ExtResource("9_lmbgj")]
+position = Vector2(6, 614)
+color = Color(0.85098, 0, 0.862745, 1)
+
 [node name="Player" parent="." instance=ExtResource("2_xvnuw")]
 position = Vector2(31, 613)
 scale = Vector2(0.5, 0.5)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.247059, 0.247059, 0.247059, 1)
+color = Color(0.556863, 0.556863, 0.556863, 1)
 
 [connection signal="body_entered" from="LavaPlatos" to="." method="_on_lava_platos_body_entered"]
 [connection signal="body_exited" from="LavaPlatos" to="." method="_on_lava_platos_body_exited"]

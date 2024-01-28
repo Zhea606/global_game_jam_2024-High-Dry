@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://0gm7u05ngswf"]
+
+[ext_resource type="Script" path="res://scenes/pausa/pausa.gd" id="1_voka0"]
+
+[sub_resource type="Theme" id="Theme_q2mi6"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_q2mi6")
+script = ExtResource("1_voka0")
+
+[node name="Panel3" type="ColorRect" parent="."]
+process_mode = 3
+modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -108.5
+offset_right = 76.5
+offset_bottom = 108.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 23
+
+[node name="Volver" type="Button" parent="Panel3/VBoxContainer"]
+layout_mode = 2
+text = "VOLVER AL JUEGO"
+
+[node name="Inicio" type="Button" parent="Panel3/VBoxContainer"]
+layout_mode = 2
+text = "INICIO"
+
+[node name="Salir" type="Button" parent="Panel3/VBoxContainer"]
+layout_mode = 2
+text = "SALIR"
+
+[connection signal="pressed" from="Panel3/VBoxContainer/Volver" to="." method="_on_volver_pressed"]
+[connection signal="pressed" from="Panel3/VBoxContainer/Inicio" to="." method="_on_inicio_pressed"]
+[connection signal="pressed" from="Panel3/VBoxContainer/Salir" to="." method="_on_salir_pressed"]
