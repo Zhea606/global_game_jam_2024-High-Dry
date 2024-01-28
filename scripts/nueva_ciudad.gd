@@ -4,9 +4,17 @@ var abuelita_scene = preload("res://scenes/dialogos/dialogo_abuelita.tscn")
 var mickey_scene = preload("res://scenes/dialogos/dialogo_mickey.tscn")
 var inimputable_scene = preload("res://scenes/dialogos/dialogo_inim.tscn")
 var infidelidad_scene = preload("res://scenes/dialogos/dialogo_infelidad.tscn")
+var diegote_scene = preload("res://scenes/dialogos/dialogo_diegote.tscn")
 
 var personaje_en_area = false
 var casa
+
+var casas = {
+	"abuelita": false,
+	"infidelidad": false,
+	"mickey": false,
+	"diegote": false
+}
 
 func _process(delta: float) -> void:
 	if personaje_en_area:
@@ -18,17 +26,32 @@ func _process(delta: float) -> void:
 		
 		match casa:
 			"abuelita":
-				var escena = abuelita_scene.instantiate()
-				add_child(escena)
+				if not casas["abuelita"]:
+					casas["abuelita"] = true
+					var escena = abuelita_scene.instantiate()
+					add_child(escena)
+					get_tree().call_group("Player","modificar_high",-10)
 			"inimputable":
 				var escena = inimputable_scene.instantiate()
 				add_child(escena)
 			"infidelidad":
-				var escena = infidelidad_scene.instantiate()
-				add_child(escena)
+				if not casas["infidelidad"]:
+					casas["infidelidad"] = true
+					var escena = infidelidad_scene.instantiate()
+					add_child(escena)
+					get_tree().call_group("Player","modificar_high",-10)
 			"mickey":
-				var escena = mickey_scene.instantiate()
-				add_child(escena)
+				if not casas["mickey"]:
+					casas["mickey"] = true
+					var escena = mickey_scene.instantiate()
+					add_child(escena)
+					get_tree().call_group("Player","modificar_high",+10)
+			"diegote":
+				if not casas["diegote"]:
+					casas["diegote"] = true
+					var escena = diegote_scene.instantiate()
+					add_child(escena)
+					get_tree().call_group("Player","modificar_high",+20)
 		
 
 func _on_lava_platos_body_entered(body: Node2D) -> void:
@@ -49,7 +72,6 @@ func _on_inimputable_body_entered(body: Node2D) -> void:
 
 func _on_infidelidad_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		#$CanvasLayer/Infidelidad/Label.visible = true
 		personaje_en_area = true
 		casa = "infidelidad"
 
@@ -70,5 +92,16 @@ func _on_inimputable_body_exited(body: Node2D) -> void:
 
 func _on_infidelidad_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		$Infidelidad/Label.visible = false
+		personaje_en_area = false
+
+
+func _on_diegote_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		personaje_en_area = true
+		casa = "diegote"
+
+
+
+func _on_diegote_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
 		personaje_en_area = false
