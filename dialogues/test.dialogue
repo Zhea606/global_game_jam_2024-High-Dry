@@ -14,7 +14,7 @@ Abuelita: * Te muestra los platos * …Menos mal que llegaste, mijo! Lavame los 
 Aceptas?
 - Si
 - Si
-Abuelita: * Se da vuelta y grita * PERO QUIÉN SO’ VO?! FUERAAA
+Abuelita: * Se da vuelta y grita * PERO QUIÉN SO’ VO?! SALI DE ACA!
 => END
 
 ~ inimputable
@@ -31,6 +31,12 @@ Inimputable: En 10 días salgo hermano, soy inimputable.
 ~ chica
 Chica: Ay no! Es mi marido! Andate por la ventana!
 Ehhhhh....
+- Si
+- Si
+=> END
+
+~ diegote
+Diegote: * ve el mundial * ….el Dieeeegooooo loco! Tomá e’ta locoo, es la del diego…
 - Si
 - Si
 => END

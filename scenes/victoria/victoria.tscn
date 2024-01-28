@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcrnobp0j3tq2"]
+
+[ext_resource type="Script" path="res://scenes/victoria/victoria.gd" id="1_7hwab"]
+[ext_resource type="Texture2D" uid="uid://bl3wmfr4xi8no" path="res://assets/menu/Victoria.png" id="2_v1g22"]
+[ext_resource type="FontFile" uid="uid://dwvi8w058xiym" path="res://fonts/VT323/VT323-Regular.ttf" id="3_j7vsa"]
+
+[sub_resource type="Theme" id="Theme_q2mi6"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q2mi6")
+script = ExtResource("1_7hwab")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_v1g22")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Panel2"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -51.5
+offset_right = 260.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.189)
+theme_override_fonts/font = ExtResource("3_j7vsa")
+theme_override_font_sizes/font_size = 80
+text = "UH MANSO PERRO
+LLEGUE A MI RANCHO!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 970.0
+offset_top = 535.0
+offset_right = 1120.0
+offset_bottom = 610.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Button" type="Button" parent="Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "INICIO"
+
+[connection signal="pressed" from="Panel3/Button" to="." method="_on_button_pressed"]

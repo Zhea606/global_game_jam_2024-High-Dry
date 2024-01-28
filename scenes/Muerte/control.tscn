@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2bda7vc03d15"]
+[gd_scene load_steps=10 format=3 uid="uid://d2bda7vc03d15"]
 
 [ext_resource type="Script" path="res://scenes/Muerte/Control.gd" id="1_xu868"]
+[ext_resource type="Texture2D" uid="uid://cjimduhwquxg7" path="res://assets/menu/Derrota-3.0_.png" id="2_grpke"]
+[ext_resource type="FontFile" uid="uid://dwvi8w058xiym" path="res://fonts/VT323/VT323-Regular.ttf" id="3_h5h0e"]
 
 [sub_resource type="Theme" id="Theme_q2mi6"]
 
@@ -9,11 +11,15 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htlbc"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wrc0"]
-bg_color = Color(1, 0.337255, 0, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_54rvb"]
+font = ExtResource("3_h5h0e")
+font_size = 111
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e2wh"]
-bg_color = Color(0.6, 0.00784314, 0.6, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehvgl"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3wx4"]
+bg_color = Color(0, 0, 0, 0.705882)
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(1152, 648)
@@ -45,15 +51,24 @@ grow_vertical = 2
 theme = SubResource("Theme_sk2rx")
 theme_override_styles/panel = SubResource("StyleBoxFlat_htlbc")
 
-[node name="Panel2" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 137.0
-offset_top = 22.0
-offset_right = 1037.0
-offset_bottom = 622.0
+[node name="Panel2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -300.0
+offset_right = 450.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_6wrc0")
+texture = ExtResource("2_grpke")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="TextureRect" type="TextureRect" parent="Panel2"]
 layout_mode = 0
@@ -64,32 +79,34 @@ offset_bottom = 574.983
 
 [node name="Label" type="Label" parent="Panel2"]
 custom_minimum_size = Vector2(400, 150)
-layout_mode = 0
-offset_left = 241.021
-offset_top = -67.492
-offset_right = 641.021
-offset_bottom = 82.508
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -333.0
+offset_right = 333.0
+offset_bottom = 187.0
+grow_horizontal = 2
 scale = Vector2(1, 1.189)
-text = "PARTICIPANTEs"
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_54rvb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel3" type="Panel" parent="."]
-custom_minimum_size = Vector2(200, 150)
-layout_mode = 0
-offset_left = 931.0
-offset_top = 473.0
-offset_right = 1131.0
-offset_bottom = 623.0
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_0e2wh")
-
-[node name="Button" type="Button" parent="Panel3"]
+[node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 800.0
+offset_top = 520.0
+offset_right = -24.0
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "SI"
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ehvgl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b3wx4")
+text = "VOLVER A EMPEZAR"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

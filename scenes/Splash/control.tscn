@@ -1,12 +1,69 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmwf4l5qolwer"]
+[gd_scene load_steps=19 format=3 uid="uid://cmwf4l5qolwer"]
 
 [ext_resource type="Script" path="res://scenes/Splash/Control.gd" id="1_sth2b"]
-[ext_resource type="Texture2D" uid="uid://cef35fupgtlr1" path="res://scenes/Splash/luces-ciudad-noche.jpg" id="2_vfek4"]
-[ext_resource type="Texture2D" uid="uid://c0en1bqtj50ku" path="res://scenes/Splash/turro idle.png" id="3_og2e3"]
+[ext_resource type="Texture2D" uid="uid://cgg5orbgh8y8i" path="res://scenes/Splash/High & Dry inicio.png" id="2_i41b7"]
+[ext_resource type="FontFile" uid="uid://dwvi8w058xiym" path="res://fonts/VT323/VT323-Regular.ttf" id="3_rabva"]
+[ext_resource type="Texture2D" uid="uid://b658ej5yr5joo" path="res://assets/pj/turro idle.png" id="4_be0p5"]
+[ext_resource type="Texture2D" uid="uid://dx6s3ctouac5j" path="res://assets/pj/caminando_lateral/000.png" id="5_p4v1m"]
+[ext_resource type="Texture2D" uid="uid://djpesutmcrrh4" path="res://assets/pj/caminando_lateral/001.png" id="6_te75q"]
+[ext_resource type="Texture2D" uid="uid://2phrpq1dkwc7" path="res://assets/pj/caminando_lateral/002.png" id="7_m7vsp"]
+[ext_resource type="Texture2D" uid="uid://b7ec01lla48kc" path="res://assets/pj/caminando_lateral/003.png" id="8_fjksp"]
+[ext_resource type="Texture2D" uid="uid://b8a57qf1rd5ll" path="res://assets/pj/caminando_lateral/004.png" id="9_6nwsi"]
+[ext_resource type="Texture2D" uid="uid://epgfnh4m38ou" path="res://assets/pj/caminando_lateral/005.png" id="10_7ai1g"]
+[ext_resource type="Texture2D" uid="uid://cpoiog5jymn76" path="res://assets/pj/caminando_lateral/006.png" id="11_hqgsp"]
+[ext_resource type="Texture2D" uid="uid://e2sxwb0kcb0c" path="res://assets/pj/caminando_lateral/007.png" id="12_b3eoo"]
 
 [sub_resource type="Theme" id="Theme_q2mi6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htlbc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7efv"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyxn0"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="Theme" id="Theme_6oqs8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wu3ij"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_be0p5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_p4v1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_te75q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_m7vsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fjksp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6nwsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7ai1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hqgsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b3eoo")
+}],
+"loop": true,
+"name": &"lateral",
+"speed": 8.0
+}]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -33,7 +90,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vfek4")
+texture = ExtResource("2_i41b7")
 expand_mode = 1
 
 [node name="Button" type="Button" parent="."]
@@ -49,6 +106,9 @@ offset_right = 155.0
 offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_rabva")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_s7efv")
 text = "PLAY"
 
 [node name="Button2" type="Button" parent="."]
@@ -64,6 +124,9 @@ offset_right = 155.0
 offset_bottom = -153.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_rabva")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_hyxn0")
 text = "SALIR"
 
 [node name="Label" type="Label" parent="."]
@@ -76,18 +139,19 @@ offset_top = 30.0
 offset_right = 250.0
 offset_bottom = 180.0
 grow_horizontal = 2
+theme = SubResource("Theme_6oqs8")
+theme_override_fonts/font = ExtResource("3_rabva")
+theme_override_font_sizes/font_size = 90
 text = "HIGH AND DRY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 744.0
-offset_top = 186.0
-offset_right = 1144.0
-offset_bottom = 586.0
-texture = ExtResource("3_og2e3")
-expand_mode = 3
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(210, 417)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_wu3ij")
+animation = &"lateral"
+flip_h = true
 
 [connection signal="hidden" from="Button" to="." method="_on_button_hidden"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

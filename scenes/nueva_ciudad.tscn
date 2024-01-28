@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2r1f7tbtkm0a"]
+[gd_scene load_steps=16 format=3 uid="uid://d2r1f7tbtkm0a"]
 
 [ext_resource type="Texture2D" uid="uid://bkxq68ceieag4" path="res://assets/tilemap/ciudad.png" id="1_2c1g8"]
 [ext_resource type="Script" path="res://scripts/nueva_ciudad.gd" id="1_vuht1"]
@@ -807,9 +807,6 @@ size = Vector2(20, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgdoc"]
 size = Vector2(20, 29)
 
-[sub_resource type="LabelSettings" id="LabelSettings_getne"]
-font_size = 8
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10i7o"]
 size = Vector2(20, 27)
 
@@ -859,14 +856,13 @@ metadata/_edit_group_ = true
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_mgdoc")
 
-[node name="Label" type="Label" parent="Infidelidad"]
-visible = false
-offset_left = -16.0
-offset_top = -42.0
-offset_right = 24.0
-offset_bottom = -19.0
-text = "PRESS E"
-label_settings = SubResource("LabelSettings_getne")
+[node name="Diegote" type="Area2D" parent="." groups=["Mickey"]]
+position = Vector2(160, 592)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Diegote"]
+position = Vector2(219, -1)
+shape = SubResource("RectangleShape2D_mgdoc")
 
 [node name="Casa" type="Area2D" parent="." groups=["Casa"]]
 position = Vector2(1011, 223)
@@ -939,3 +935,5 @@ color = Color(0.247059, 0.247059, 0.247059, 1)
 [connection signal="body_exited" from="Inimputable" to="." method="_on_inimputable_body_exited"]
 [connection signal="body_entered" from="Infidelidad" to="." method="_on_infidelidad_body_entered"]
 [connection signal="body_exited" from="Infidelidad" to="." method="_on_infidelidad_body_exited"]
+[connection signal="body_entered" from="Diegote" to="." method="_on_diegote_body_entered"]
+[connection signal="body_exited" from="Diegote" to="." method="_on_diegote_body_exited"]
