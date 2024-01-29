@@ -9,4 +9,5 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if not dialogo:
+		get_tree().call_group("Player","resume_player")
 		queue_free()

@@ -22,7 +22,8 @@ func _process(delta: float) -> void:
 		else:
 			linterna.rotation_degrees = 0
 	
-	move_and_slide()
+	if not stopped:
+		move_and_slide()
 
 func colision_horizontal() -> bool:
 	if policia.flip_h:

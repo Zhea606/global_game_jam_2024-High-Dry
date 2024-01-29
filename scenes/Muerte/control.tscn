@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2bda7vc03d15"]
+[gd_scene load_steps=11 format=3 uid="uid://d2bda7vc03d15"]
 
 [ext_resource type="Script" path="res://scenes/Muerte/Control.gd" id="1_xu868"]
 [ext_resource type="Texture2D" uid="uid://cjimduhwquxg7" path="res://assets/menu/Derrota-3.0_.png" id="2_grpke"]
 [ext_resource type="FontFile" uid="uid://dwvi8w058xiym" path="res://fonts/VT323/VT323-Regular.ttf" id="3_h5h0e"]
+[ext_resource type="AudioStream" uid="uid://c2pgev1dqtxcb" path="res://sounds/mickey mouse.mp3" id="4_e54ve"]
 
 [sub_resource type="Theme" id="Theme_q2mi6"]
 
@@ -108,5 +109,10 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ehvgl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_b3wx4")
 text = "VOLVER A EMPEZAR"
+
+[node name="AudioDerrota" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_e54ve")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

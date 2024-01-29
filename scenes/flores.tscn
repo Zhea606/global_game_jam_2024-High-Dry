@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce0ncnuvutryj"]
+[gd_scene load_steps=6 format=3 uid="uid://ce0ncnuvutryj"]
 
 [ext_resource type="Script" path="res://scripts/flores.gd" id="1_7wi00"]
 [ext_resource type="Texture2D" uid="uid://cm6hensklofwy" path="res://assets/coleccionables/flor.png" id="2_6lhkt"]
 [ext_resource type="PackedScene" uid="uid://b3n5rgsxlu228" path="res://scenes/pointlight/point_light_2d.tscn" id="3_qrqpr"]
+[ext_resource type="AudioStream" uid="uid://cmnmp7e45uihl" path="res://sounds/huele_flores(pwflroes).mp3" id="4_lbifr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uif1p"]
 size = Vector2(130, 130)
@@ -22,5 +23,8 @@ shape = SubResource("RectangleShape2D_uif1p")
 
 [node name="PointLight2D" parent="." instance=ExtResource("3_qrqpr")]
 texture_scale = 2.0
+
+[node name="AudioFlores" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lbifr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

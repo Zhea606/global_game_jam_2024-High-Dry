@@ -9,5 +9,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if not dialogo:
-		queue_free()
+		
 		Autoload.game_over()
+		queue_free()
+		

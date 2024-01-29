@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cmwf4l5qolwer"]
+[gd_scene load_steps=21 format=3 uid="uid://cmwf4l5qolwer"]
 
 [ext_resource type="Script" path="res://scenes/Splash/Control.gd" id="1_sth2b"]
 [ext_resource type="Texture2D" uid="uid://cgg5orbgh8y8i" path="res://scenes/Splash/High & Dry inicio.png" id="2_i41b7"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://epgfnh4m38ou" path="res://assets/pj/caminando_lateral/005.png" id="10_7ai1g"]
 [ext_resource type="Texture2D" uid="uid://cpoiog5jymn76" path="res://assets/pj/caminando_lateral/006.png" id="11_hqgsp"]
 [ext_resource type="Texture2D" uid="uid://e2sxwb0kcb0c" path="res://assets/pj/caminando_lateral/007.png" id="12_b3eoo"]
+[ext_resource type="AudioStream" uid="uid://dxpt3m4ed8jpw" path="res://sounds/Music_High__Dry.mp3" id="13_ojdjx"]
+[ext_resource type="AudioStream" uid="uid://ddr2uqueg3wno" path="res://sounds/agarra_caramelo.mp3" id="14_tev3c"]
 
 [sub_resource type="Theme" id="Theme_q2mi6"]
 
@@ -67,9 +69,11 @@ animations = [{
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_q2mi6")
 script = ExtResource("1_sth2b")
 
@@ -119,15 +123,33 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -145.0
-offset_top = -203.0
+offset_top = -195.0
 offset_right = 155.0
-offset_bottom = -153.0
+offset_bottom = -145.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_rabva")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_hyxn0")
 text = "SALIR"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -257.0
+offset_right = 155.0
+offset_bottom = -207.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_rabva")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_hyxn0")
+text = "CREDITOS"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -153,6 +175,14 @@ sprite_frames = SubResource("SpriteFrames_wu3ij")
 animation = &"lateral"
 flip_h = true
 
+[node name="AudioPrincp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ojdjx")
+autoplay = true
+
+[node name="AudioCorte" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_tev3c")
+
 [connection signal="hidden" from="Button" to="." method="_on_button_hidden"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
