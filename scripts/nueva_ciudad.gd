@@ -137,7 +137,7 @@ func _on_casa_body_entered(body: Node2D) -> void:
 		casa = "casa"
 		$Casa/Label.visible = true
 		if not Autoload.llave:
-			body.mensaje = "TE FALTA LA LLAVE DE TU CASA"
+			body.mensaje.text = "TE FALTA LA LLAVE DE TU CASA"
 
 func _on_casa_body_exited(body: Node2D) -> void:
 	personaje_en_area = false
